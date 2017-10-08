@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>翼灵物联网工作室招新考试登录</title>
+    <link rel="stylesheet" href="/css/login.css" />
+    <script type="text/javascript" src="/js/login.js"></script>
+</head>
+<body>
+<form  th:action="@{/login}">
+<div class="main">
+    <div class="center">
+        <div id="login">
+            <h1>翼灵物联网工作室招新考试登录</h1>
+
+            <div class="name">
+                <input type="text" name="Name" id="Name" value=""/>
+                <label>姓名</label>
+            </div>
+            <div class="id-num">
+                <input type="text" name="Id" id="Id" value=""/>
+                <label>学号</label>
+            </div>
+            <div class="tel">
+                <input type="text" name="Tel" id="Tel" value=""/>
+                <label>电话</label>
+            </div>
+
+            <div class="submit">
+                <button id="start"  class="dark" >开始答题</button>
+                <!--<input id="start" class="dark"type="button"  value="开始答题"  />-->
+            </div>
+        </div>
+<img src="/img/wingling.png"/>
+    </div>
+</div>
+</form >
+</body>
+</html>

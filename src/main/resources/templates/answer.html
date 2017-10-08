@@ -1,0 +1,139 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript" src="/js/time-count.js"></script>    <!--Look Here!-->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.ico"/>
+    <link rel="stylesheet" type="text/css"  href="/css/answering-system.css"/>
+    <title>翼灵招新答题系统</title>
+    <script language="JavaScript">
+        javascript:window.history.forward(1);
+    </script>
+</head>
+<body>
+<h1>2017翼灵物联网工作室招新考试</h1>
+<form id="time-counter">
+    时间还有：
+    <input type="text" id="txt" value="0时0分0秒" readOnly="readonly"/>
+</form>
+
+<div id="answering-card">
+    <button class="card" type="button" id="1" onclick="clickMove(1)">1</button>
+    <button class="card" type="button" id="2" onclick="clickMove(2)">2</button>
+    <button class="card" type="button" id="3" onclick="clickMove(3)">3</button>
+    <button class="card" type="button" id="4" onclick="clickMove(4)">4</button>
+    <button class="card" type="button" id="5" onclick="clickMove(5)">5</button>
+    <button class="card" type="button" id="6" onclick="clickMove(6)">6</button>
+    <button class="card" type="button" id="7" onclick="clickMove(7)">7</button>
+    <button class="card" type="button" id="8" onclick="clickMove(8)">8</button>
+    <button class="card" type="button" id="9" onclick="clickMove(9)">9</button>
+    <button class="card" type="button" id="10" onclick="clickMove(10)">10</button>
+    <button class="card" type="button" id="11" onclick="clickMove(11)">11</button>
+    <button class="card" type="button" id="12" onclick="clickMove(12)">12</button>
+    <button class="card" type="button" id="13" onclick="clickMove(13)">13</button>
+    <button class="card" type="button" id="14" onclick="clickMove(14)">14</button>
+</div>
+
+
+<form id="myform"  th:action="@{/add}"  method="post">
+    <div id="answering-area">
+
+
+        <!-- <a>-->
+        <div id="information">
+
+            姓名：<span class="blank"  name="name" th:text="${name}"></span>
+            学号：<span class="blank"  name="number"  th:text="${number}"></span>
+            Tel：<span class="blank"  name="phone"  th:text="${phone}"></span>
+            <p class="tips">如有打字不便者，可申请笔试<br/>主观题务请必填写自身最真实情况，否则可能会错过与我们一起追逐梦想的机会！</p>  <!--2017.9.15 新修改-->
+        </div>
+        <div class="subjective-question">
+            <h2>一、主观题</h2><span class="instruction">共4题</span>
+            <p><strong>1.你最得意的一件事情是什么?(限200字)</strong></p>
+            <textarea   name="one" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(1)"></textarea>
+            <p><strong>2．之前自学过计算机方向的内容吗，通过什么途径？(限200字)</strong></p>
+            <textarea name="two" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(2)"></textarea>
+            <p><strong>3． 简述一下你的个人性格。(限200字)</strong></p>
+            <textarea name="three" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(3)"></textarea>
+            <p><strong>4．请列出我们让你通过考核的理由。(限200字)</strong></p>
+            <textarea name="four" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(4)"></textarea>
+        </div>
+        <div id="short-answer">
+            <h2>二、逻辑题</h2><span class="instruction">共10题</span>
+
+            <p><strong>5. 凡有关国家机密的案件都不是公开审理的案件，据此，我们可以推出:</strong></p>
+            <label for="q5-1"><input  id="q5-1" checked="checked" type="radio" name="five" value="a" onchange="changeColor(5)"/>A.
+                不公开审理的案件都是有关国家机密的案件。</label>
+            <label for="q5-2"><input id="q5-2" type="radio" name="five" value="b" onchange="changeColor(5)"/>B.
+                公开审理的案件都不是有关国家机密的案件。</label>
+            <label for="q5-3"><input id="q5-3" type="radio" name="five" value="c" onchange="changeColor(5)"/>C.
+                有关国家机密的某些案件可以公开审理。</label>
+            <label for="q5-4"><input id="q5-4" type="radio" name="five" value="d" onchange="changeColor(5)"/>D.
+                不涉及国家机密的有些案件可以不公开审理。</label>
+
+            <p><strong>6.</strong></p>
+            <img class="Q6" src="/img/q6.png" />
+            <textarea name="six" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(6)"></textarea>
+
+            <p><strong>7.当B等于Y时，A等于Z :当A不等于Z时，E要么等于Y ,要么等于Z，所以，</strong></p>
+            <label for="q7-1"><input  id="q7-1" type="radio"  checked="checked" name="seven" value="a" onchange="changeColor(7)"/>A.
+                当B等于Y时，E既不等于Y也不等于Z。</label>
+            <label for="q7-2"><input id="q7-2" type="radio" name="seven" value="b" onchange="changeColor(7)"/>B.
+                当A等于Z时，Y或者Z等于E。</label>
+            <label for="q7-3"><input id="q7-3" type="radio" name="seven" value="c" onchange="changeColor(7)"/>C.
+                当B不等于Y时，E既不等于Y也不等于Z。</label>
+
+            <p><strong>8.只要X等于红色，Y就一定等于绿色；只要Y等于绿色，Z就一定等于蓝色。但是，当X等于红色时，Z绝对不会等于蓝色，所以，</strong></p>
+            <label for="q8-1"><input id="q8-1"  checked="checked" type="radio"  name="eight" value="a" onchange="changeColor(8)"/>A.
+                只要Z等于蓝色，Y就可能是绿色。</label>
+            <label for="q8-2"><input id="q8-2" type="radio" name="eight" value="b" onchange="changeColor(8)"/>B.
+                只要Y不等于红色，Z就可能不是蓝色。</label>
+            <label for="q8-3"><input id="q8-3" type="radio" name="eight" value="c" onchange="changeColor(8)"/>C.
+                只要Y不等于绿色，X就不可能是红色。</label>
+
+            <p><strong>9. 有一个人们只想生男孩子的国家，他们在有儿子之前都会继续生育。如果第一胎是女儿，他们就会继续生育直到有一个儿子。这个国家的男女儿童比例是多少？为什么？(限200字)
+            </strong></p>
+            <textarea name="nine" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(9)"></textarea>  <!--这里删除了选择题-->
+
+            <p><strong>10. 一个人花 8 块钱买了一只鸡，9 块钱卖掉了，然后他觉得不划算，花 10 块 钱又买回来了，11 块卖给另外一个人。请问他赚钱了还是赔钱了?(限200字)</strong></p>
+            <textarea name="ten" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(10)"></textarea>
+
+            <p><strong>11.有 23 枚硬币在桌上，10 枚正面朝上。假设别人蒙住你的眼睛，而你的手又 摸不出硬币的反正面。让你用最好的方法把这些硬币分成两堆，每堆正面朝上 的硬币个数相同。答案是：分成 10＋13
+                枚两堆， 然后翻转 10 枚的那堆。 请解释一下为什么？(限200字)</strong></p>
+            <textarea name="f1" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(11)"></textarea>
+
+            <p><strong>12.
+                12. 你拿着两个鸡蛋站在100层的大楼上。鸡蛋或许结实到从楼顶掉下也不会摔破，或许很易碎，在一楼摔下就破碎。最少试验多少次可以找出鸡蛋不会被摔碎的最高楼层？(限200字)
+            </strong></p>
+            <textarea name="f2" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(12)"></textarea>
+
+            <p><strong>13.10箱黄金，每箱100块，每块1两，有个贪官，把某一箱的每块都磨去一钱（设：1两=10钱），请称一次找到那个不足量的箱子。(限200字)</strong></p>
+            <textarea name="f3" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(13)"></textarea>
+
+            <p><strong>14.假设在桌上有三个密封的盒子，一个盒中有2枚银币（1硬币=10便士），一个盒中有2枚镍币（1镍币=5便士），还有一个盒中有1枚银币和镍币。这些盒子被标上10便士、15便士和20便士，但每个标签都是错误的。允许你从一个盒中拿出一枚硬币放在盒前，看到这枚硬币你能否说出每个盒内装的东西呢？</strong>
+              (限200字)</p>
+            <textarea name="f4" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200" onchange="changeColor(14)"></textarea>
+        </div>
+        <div id="blank-filling">
+            <h2>三、选做题</h2><span class="instruction">共2题</span>
+            <p><strong>15.从开学到现在你都自学了哪些内容？通过什么途径？达到了什么样的效果？(限200字)</strong></p>
+            <textarea name="f5" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200"></textarea>    <!--这里增加了一个textarea-->
+            <p><strong>16.曾经完成过优秀小发明制作或者具备 PS、视频制作等突出计算机基础同学请简要介绍作品。（获奖者请标注获奖等级）(限200字)</strong></p>
+            <textarea name="f6" rows="10" cols="98" placeholder="  请在此输入答题的内容" maxlength="200"></textarea>
+        </div>
+
+        <input id="btn" class="form-text" name="button" type="button" onclick="validata()" value="提交答案" />
+    </div>
+</form>
+
+<script>
+
+    function validata() {
+            document.getElementById("myform").submit();
+    }
+</script>
+
+
+</body>
+
+</html>
